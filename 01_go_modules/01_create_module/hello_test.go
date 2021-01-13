@@ -15,3 +15,24 @@ func TestProverb(t *testing.T) {
 		t.Errorf("Proverb() = %q, want = %q", got, want)
 	}
 }
+
+func TestWorldTravelers(t *testing.T) {
+	want := "I can eat glass and it doesn't hurt me."
+	if got := worldTraverlers(); got != want {
+		t.Errorf("worldTravelers = %q, want = %q", got, want)
+	}
+}
+
+func TestGlassV3(t *testing.T) {
+	want := "I can eat glass and it doesn't hurt me."
+	if got := glassV3(); got != want {
+		t.Errorf("glassv3 = %q, want = %q", got, want)
+	}
+}
+
+func TestOptv2(t *testing.T) {
+	want := "If a program is too slow, it must have a loop."
+	if got := optV2(); got != want {
+		t.Errorf("optv2 = %q, want = %q", got, want)
+	}
+}
