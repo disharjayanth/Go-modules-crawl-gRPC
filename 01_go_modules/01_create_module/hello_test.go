@@ -36,3 +36,13 @@ func TestOptv2(t *testing.T) {
 		t.Errorf("optv2 = %q, want = %q", got, want)
 	}
 }
+
+func TestQuotesFromGitHubRepo(t *testing.T) {
+	want := []string{"Hello World!", "GoodBye!"}
+	got := quotesFromGithubRep()
+	for i, val := range got {
+		if val != want[i] {
+			t.Errorf("got = %q, want = %q", val, want[i])
+		}
+	}
+}

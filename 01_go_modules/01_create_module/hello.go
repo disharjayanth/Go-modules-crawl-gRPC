@@ -1,6 +1,7 @@
 package hello
 
 import (
+	"github.com/disharjayanth/quotes"
 	quoteV2 "rsc.io/quote/v2"
 	"rsc.io/quote/v3"
 )
@@ -25,4 +26,8 @@ func glassV3() string {
 
 func optV2() string {
 	return quoteV2.OptV2()
+}
+
+func quotesFromGithubRep() []string {
+	return quotes.Favs()
 }
