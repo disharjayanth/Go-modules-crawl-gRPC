@@ -3,6 +3,7 @@ module github.com/disharjayanth/Go-modules-crawl-gRPC
 go 1.15
 
 require (
+	github.com/disharjayanth/quotes v0.0.3
 	golang.org/x/text v0.3.5 // indirect
 	rsc.io/quote/v2 v2.0.1
 	rsc.io/quote/v3 v3.1.0
