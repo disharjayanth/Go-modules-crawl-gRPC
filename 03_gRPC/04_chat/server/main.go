@@ -53,6 +53,7 @@ func (c *Connection) start() {
 	}
 }
 
+// Receives msg and sends it to broadcast
 func (c *Connection) GetMessage(broadcast chan<- *chat_build.ChatMessage) error {
 	for {
 		msg, err := c.conn.Recv()
@@ -94,6 +95,7 @@ func (c *ChatServer) Close() error {
 	return nil
 }
 
+// This method loops takes message from broadcast and loops over the []Connections and sends msg to every single connection
 func (c *ChatServer) start() {
 	running := true
 	for running {
@@ -110,6 +112,9 @@ func (c *ChatServer) start() {
 	}
 }
 
+// This method implements the .proto Chap rpc method
+// whenever in rpc method has stream in it as arg and return ,
+// go will take it 1 arg that has send and receive
 func (c *ChatServer) Chat(stream chat_build.Chat_ChatServer) error {
 	conn := NewConnection(stream)
 
