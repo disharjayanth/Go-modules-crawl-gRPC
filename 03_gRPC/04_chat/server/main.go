@@ -112,7 +112,7 @@ func (c *ChatServer) start() {
 	}
 }
 
-// This method implements the .proto Chap rpc method
+//Chat This method implements the .proto Chap rpc method
 // whenever in rpc method has stream in it as arg and return ,
 // go will take it 1 arg that has send and receive
 func (c *ChatServer) Chat(stream chat_build.Chat_ChatServer) error {
