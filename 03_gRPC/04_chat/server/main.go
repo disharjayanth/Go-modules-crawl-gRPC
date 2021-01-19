@@ -46,6 +46,7 @@ func (c *Connection) start() {
 	for running {
 		select {
 		case msg := <-c.send:
+			// from server to client
 			c.conn.Send(msg)
 		case <-c.quit:
 			running = false
@@ -53,7 +54,7 @@ func (c *Connection) start() {
 	}
 }
 
-// Receives msg and sends it to broadcast
+// Receives msg and sends it to broadcast (to get broadcasted in .start method of *ChatServer)
 func (c *Connection) GetMessage(broadcast chan<- *chat_build.ChatMessage) error {
 	for {
 		msg, err := c.conn.Recv()
@@ -95,7 +96,7 @@ func (c *ChatServer) Close() error {
 	return nil
 }
 
-// This method loops takes message from broadcast and loops over the []Connections and sends msg to every single connection
+// This method loops and waits message from broadcast and ranges over the []Connections and sends msg to every single connection
 func (c *ChatServer) start() {
 	running := true
 	for running {
